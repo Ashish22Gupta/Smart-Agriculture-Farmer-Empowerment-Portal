@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Winnings - Smart Krishi Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body class="campaign-bhoomi">
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-icon">
+                    <span class="material-symbols-rounded">agriculture</span>
+                </div>
+                <div class="sidebar-logo-text">
+                    Smart Krishi
+                    <span>Farmer Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-rounded">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="upload-bill.html" class="nav-item">
+                    <span class="material-symbols-rounded">upload_file</span>
+                    Upload Crop Bill
+                </a>
+                <a href="my-winnings.html" class="nav-item active">
+                    <span class="material-symbols-rounded">card_giftcard</span>
+                    My Winnings
+                </a>
+                <a href="krishi-gyan.html" class="nav-item">
+                    <span class="material-symbols-rounded">play_circle</span>
+                    Krishi Gyan
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="material-symbols-rounded">info</span>
+                    Scheme Details
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="material-symbols-rounded">help</span>
+                    FAQs
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="theme-selector">
+                    <div class="theme-dot bhoomi active" data-theme-btn="campaign-bhoomi" title="Bhoomi Theme"></div>
+                    <div class="theme-dot krishi" data-theme-btn="campaign-krishi-tech" title="Krishi Tech Theme"></div>
+                    <div class="theme-dot harit" data-theme-btn="campaign-harit" title="Harit Theme"></div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="material-symbols-rounded">menu</span>
+                </button>
+                <h1 class="page-title">My Winnings</h1>
+            </div>
+
+            <div class="header-right">
+                <button class="header-icon-btn">
+                    <span class="material-symbols-rounded">notifications</span>
+                    <span class="notification-dot"></span>
+                </button>
+                <div class="user-chip">
+                    <div class="user-avatar">RK</div>
+                    <div class="user-details">
+                        <div class="user-chip-name">Ramesh Kumar</div>
+                        <div class="user-chip-role">Farmer ID: FK2026001</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main -->
+        <main class="main-content">
+            <!-- Summary Card -->
+            <div class="winnings-card">
+                <div class="winnings-icon">
+                    <span class="material-symbols-rounded">savings</span>
+                </div>
+                <div class="winnings-content">
+                    <div class="winnings-label">Total Scheme Benefits</div>
+                    <div class="winnings-amount" id="totalAmount">₹0</div>
+                    <div class="winnings-sub" id="totalVouchers">0 vouchers earned</div>
+                </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs" id="filterTabs">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="active">Active</button>
+                <button class="filter-tab" data-filter="redeemed">Redeemed</button>
+            </div>
+
+            <!-- Vouchers Grid -->
+            <div class="vouchers-grid" id="vouchersGrid">
+                <!-- Dynamically populated -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" hidden>
+                <span class="material-symbols-rounded">card_giftcard</span>
+                <p>No vouchers in this category yet.</p>
+                <a href="upload-bill.html" class="btn btn-primary" style="max-width: 240px; margin: 16px auto 0;">
+                    <span class="material-symbols-rounded">upload_file</span>
+                    Upload Crop Bill
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Voucher Code Modal -->
+    <div class="modal-overlay" id="voucherModal">
+        <div class="modal-content">
+            <button class="modal-close" data-close-modal>
+                <span class="material-symbols-rounded">close</span>
+            </button>
+            <div class="modal-icon">
+                <span class="material-symbols-rounded" id="modalIcon">card_giftcard</span>
+            </div>
+            <h3 id="modalTitle">Voucher Title</h3>
+            <p id="modalValidity">Valid till...</p>
+
+            <div class="voucher-code-display">
+                <div class="voucher-code-label">Your Voucher Code</div>
+                <div class="voucher-code" id="modalCode">KRXXXXXX</div>
+                <button class="copy-code-btn" id="copyCodeBtn">
+                    <span class="material-symbols-rounded">content_copy</span>
+                    Copy Code
+                </button>
+            </div>
+
+            <div class="collection-info">
+                <span class="material-symbols-rounded">storefront</span>
+                <div>
+                    <strong>Collect at Krishi Kendra</strong>
+                    <p>Show this code at your nearest Krishi Seva Kendra to claim your reward.</p>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" id="markRedeemedBtn">
+                <span class="material-symbols-rounded">check_circle</span>
+                Mark as Redeemed
+            </button>
+        </div>
+    </div>
+
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/my-winnings.js"></script>
+    <script src="./scripts/theme.js"></script>
+</body>
+</html>

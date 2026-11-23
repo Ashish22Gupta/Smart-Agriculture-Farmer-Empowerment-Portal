@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Crop Bill - Smart Krishi Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body class="campaign-bhoomi">
+    <div class="app-layout">
+        <!-- Sidebar (Desktop) -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-icon">
+                    <span class="material-symbols-rounded">agriculture</span>
+                </div>
+                <div class="sidebar-logo-text">
+                    Smart Krishi
+                    <span>Farmer Portal</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-rounded">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="upload-bill.html" class="nav-item active">
+                    <span class="material-symbols-rounded">upload_file</span>
+                    Upload Crop Bill
+                </a>
+                <a href="my-winnings.html" class="nav-item">
+                    <span class="material-symbols-rounded">card_giftcard</span>
+                    My Winnings
+                </a>
+                <a href="krishi-gyan.html" class="nav-item">
+                    <span class="material-symbols-rounded">play_circle</span>
+                    Krishi Gyan
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="material-symbols-rounded">info</span>
+                    Scheme Details
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="material-symbols-rounded">help</span>
+                    FAQs
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="theme-selector">
+                    <div class="theme-dot bhoomi active" data-theme-btn="campaign-bhoomi" title="Bhoomi Theme"></div>
+                    <div class="theme-dot krishi" data-theme-btn="campaign-krishi-tech" title="Krishi Tech Theme"></div>
+                    <div class="theme-dot harit" data-theme-btn="campaign-harit" title="Harit Theme"></div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Sidebar Overlay (Mobile) -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        
+        <!-- Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="material-symbols-rounded">menu</span>
+                </button>
+                <h1 class="page-title">Upload Crop Bill</h1>
+            </div>
+            
+            <div class="header-right">
+                <button class="header-icon-btn">
+                    <span class="material-symbols-rounded">notifications</span>
+                    <span class="notification-dot"></span>
+                </button>
+                <div class="user-chip">
+                    <div class="user-avatar">RK</div>
+                    <div class="user-details">
+                        <div class="user-chip-name">Ramesh Kumar</div>
+                        <div class="user-chip-role">Farmer ID: FK2026001</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div style="max-width: 640px; margin: 0 auto;">
+                <!-- Page Intro -->
+                <div class="content-section">
+                    <h2 style="font-size: 28px; margin-bottom: 8px;">Upload Crop Sale Receipt</h2>
+                    <p class="page-intro">Submit your MSP or mandi receipt to claim scheme benefits and earn agri-input vouchers. Please upload within 30 minutes of your market visit.</p>
+                </div>
+                
+                <!-- Claim Timer -->
+                <div class="claim-timer-card" id="timerCard">
+                    <span class="material-symbols-rounded timer-icon">timer</span>
+                    <div class="timer-divider"></div>
+                    <div class="timer-details">
+                        <div class="timer-countdown" id="countdown">30:00</div>
+                        <div class="timer-pill">Time Left To Claim</div>
+                    </div>
+                </div>
+                
+                <!-- Upload Helper Text -->
+                <p class="upload-helper">
+                    <span class="material-symbols-rounded" style="font-size: 16px; vertical-align: middle; color: var(--brand-primary);">info</span>
+                    Please upload a clear image of your crop sale receipt. Ensure the invoice number, crop type, and amount are clearly visible.
+                </p>
+                
+                <!-- Upload Form -->
+                <form id="billForm">
+                    <!-- Bill Upload Box -->
+                    <div class="bill-upload-box" id="billBox">
+                        <input type="file" id="billInput" accept="image/*" style="display: none;">
+                        
+                        <div class="upload-placeholder" id="uploadPlaceholder">
+                            <div class="camera-circle">
+                                <span class="material-symbols-rounded">photo_camera</span>
+                            </div>
+                            <div class="capture-title">Tap to Capture</div>
+                            <div class="capture-subtitle">Upload a clear image of your crop sale receipt</div>
+                        </div>
+                        
+                        <img id="billPreview" class="bill-preview hidden" alt="Bill preview">
+                    </div>
+                    
+                    <button type="button" id="retakeBtn" class="retake-btn hidden">
+                        <span class="material-symbols-rounded" style="font-size: 14px; vertical-align: middle;">refresh</span>
+                        Retake / Change Image
+                    </button>
+                    
+                    <!-- Invoice Number -->
+                    <div class="form-group" style="margin-top: 24px;">
+                        <label class="form-label" for="invoiceNo">MSP Receipt / Mandi Slip Number</label>
+                        <input 
+                            type="text" 
+                            id="invoiceNo" 
+                            class="form-input" 
+                            placeholder="e.g., MSP20261122-001"
+                            required
+                        >
+                        <span class="form-hint">Enter the receipt number from your crop sale bill</span>
+                        <span class="form-error" id="invoiceError"></span>
+                    </div>
+                    
+                    <!-- Location Status -->
+                    <div class="location-status" id="locationStatus">
+                        <span class="material-symbols-rounded">location_on</span>
+                        <span>Checking your location...</span>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary" id="submitBillBtn" disabled>
+                        <span class="material-symbols-rounded">check_circle</span>
+                        Submit Bill
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Expired Modal -->
+    <div class="modal-overlay" id="expiredModal">
+        <div class="modal-content">
+            <button class="modal-close" data-close-modal>
+                <span class="material-symbols-rounded">close</span>
+            </button>
+            <div class="modal-icon modal-icon--danger">
+                <span class="material-symbols-rounded">timer_off</span>
+            </div>
+            <h3>Time's Up!</h3>
+            <p>The 30-minute bill upload window has expired. This claim can no longer be submitted.</p>
+            <a href="dashboard.html" class="btn btn-primary">
+                <span class="material-symbols-rounded">home</span>
+                Back Home
+            </a>
+        </div>
+    </div>
+    
+    <!-- Duplicate Modal -->
+    <div class="modal-overlay" id="duplicateModal">
+        <div class="modal-content">
+            <button class="modal-close" data-close-modal>
+                <span class="material-symbols-rounded">close</span>
+            </button>
+            <div class="modal-icon modal-icon--danger">
+                <span class="material-symbols-rounded">warning</span>
+            </div>
+            <h3>Bill Already Used</h3>
+            <p>This receipt number has already been used for a reward claim. Please upload a different bill.</p>
+            <button class="btn btn-secondary" data-close-modal>
+                <span class="material-symbols-rounded">upload_file</span>
+                Try Another Bill
+            </button>
+        </div>
+    </div>
+    
+    <script src="scripts/app.js"></script>
+    <script src="scripts/upload-bill.js"></script>
+    <script src="scripts/theme.js"></script>
+</body>
+</html>

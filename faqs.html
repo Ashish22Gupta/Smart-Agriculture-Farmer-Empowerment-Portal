@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Smart Krishi Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="campaign-bhoomi">
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-icon">
+                    <span class="material-symbols-rounded">agriculture</span>
+                </div>
+                <div class="sidebar-logo-text">
+                    Smart Krishi
+                    <span>Farmer Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-rounded">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="upload-bill.html" class="nav-item">
+                    <span class="material-symbols-rounded">upload_file</span>
+                    Upload Crop Bill
+                </a>
+                <a href="my-winnings.html" class="nav-item">
+                    <span class="material-symbols-rounded">card_giftcard</span>
+                    My Winnings
+                </a>
+                <a href="krishi-gyan.html" class="nav-item">
+                    <span class="material-symbols-rounded">play_circle</span>
+                    Krishi Gyan
+                </a>
+                <a href="scheme-details.html" class="nav-item">
+                    <span class="material-symbols-rounded">policy</span>
+                    Scheme Details
+                </a>
+                <a href="faqs.html" class="nav-item active">
+                    <span class="material-symbols-rounded">help</span>
+                    FAQs
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="theme-selector">
+                    <div class="theme-dot bhoomi active" data-theme-btn="campaign-bhoomi" title="Bhoomi Theme"></div>
+                    <div class="theme-dot krishi" data-theme-btn="campaign-krishi-tech" title="Krishi Tech Theme"></div>
+                    <div class="theme-dot harit" data-theme-btn="campaign-harit" title="Harit Theme"></div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="material-symbols-rounded">menu</span>
+                </button>
+                <h1 class="page-title">Frequently Asked Questions</h1>
+            </div>
+
+            <div class="header-right">
+                <button class="header-icon-btn">
+                    <span class="material-symbols-rounded">notifications</span>
+                    <span class="notification-dot"></span>
+                </button>
+                <div class="user-chip">
+                    <div class="user-avatar">RK</div>
+                    <div>
+                        <div class="user-chip-name">Ramesh Kumar</div>
+                        <div class="user-chip-role">Farmer ID: FK2026001</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Page Intro -->
+            <div class="content-section">
+                <h2 style="font-size: 28px; margin-bottom: 8px;">How can we help you?</h2>
+                <p class="page-intro">Find answers to common questions about the Smart Krishi Portal, schemes, rewards, and technical support.</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="faq-search-container">
+                <div class="faq-search-box">
+                    <span class="material-symbols-rounded">search</span>
+                    <input type="text" id="faqSearch" placeholder="Search for answers..." class="faq-search-input">
+                </div>
+                <p class="search-hint" id="searchHint">Try searching for "upload", "voucher", "scheme", or "login"</p>
+            </div>
+
+            <!-- FAQ Categories -->
+            <div class="faq-categories" id="faqCategories">
+                <button class="category-chip active" data-category="all">
+                    <span class="material-symbols-rounded" style="font-size: 16px;">apps</span>
+                    All Questions
+                </button>
+                <button class="category-chip" data-category="account">
+                    <span class="material-symbols-rounded" style="font-size: 16px;">person</span>
+                    Account
+                </button>
+                <button class="category-chip" data-category="upload">
+                    <span class="material-symbols-rounded" style="font-size: 16px;">upload_file</span>
+                    Upload Bill
+                </button>
+                <button class="category-chip" data-category="rewards">
+                    <span class="material-symbols-rounded" style="font-size: 16px;">card_giftcard</span>
+                    Rewards
+                </button>
+                <button class="category-chip" data-category="schemes">
+                    <span class="material-symbols-rounded" style="font-size: 16px;">policy</span>
+                    Schemes
+                </button>
+                <button class="category-chip" data-category="technical">
+                    <span class="material-symbols-rounded" style="font-size: 16px;">build</span>
+                    Technical
+                </button>
+            </div>
+
+            <!-- FAQ List -->
+            <div class="faq-list" id="faqList">
+                
+                <!-- Account Section -->
+                <div class="faq-category-header" data-category-header="account">
+                    <span class="material-symbols-rounded">person</span>
+                    <h3>Account & Registration</h3>
+                </div>
+
+                <div class="faq-item" data-category="account">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            How do I register on the Smart Krishi Portal?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>To register on the portal:</p>
+                        <ol>
+                            <li>Open the portal and enter your mobile number linked to Aadhaar</li>
+                            <li>Receive a 4-digit OTP via SMS</li>
+                            <li>Enter the OTP to verify your identity</li>
+                            <li>Your account is automatically created using your Aadhaar-linked details</li>
+                        </ol>
+                        <p>The entire process takes less than 2 minutes and requires no additional documents.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="account">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            What if I don't receive the OTP?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>If you don't receive the OTP:</p>
+                        <ul>
+                            <li>Wait for 60 seconds before requesting a new OTP</li>
+                            <li>Check if your mobile has proper network coverage</li>
+                            <li>Ensure your mobile number is correctly linked to Aadhaar</li>
+                            <li>Try the "Resend OTP" button after the timer expires</li>
+                        </ul>
+                        <p>If the issue persists, contact our helpline at <strong>1800-180-1551</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="account">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            Can I change my registered mobile number?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, you can update your mobile number by:</p>
+                        <ul>
+                            <li>Visiting the nearest Common Service Centre (CSC) with your Aadhaar</li>
+                            <li>Calling the Kisan Call Center for verification</li>
+                            <li>Using the "Update Profile" option in the portal (coming soon)</li>
+                        </ul>
+                        <p>Your new number must be Aadhaar-linked for security reasons.</p>
+                    </div>
+                </div>
+
+                <!-- Upload Bill Section -->
+                <div class="faq-category-header" data-category-header="upload">
+                    <span class="material-symbols-rounded">upload_file</span>
+                    <h3>Upload Crop Bill</h3>
+                </div>
+
+                <div class="faq-item" data-category="upload">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            Why is there a 30-minute time limit for bill upload?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The 30-minute window ensures:</p>
+                        <ul>
+                            <li><strong>Authenticity:</strong> You're uploading the bill immediately after purchase</li>
+                            <li><strong>Location verification:</strong> Geolocation confirms you're at the mandi/market</li>
+                            <li><strong>Prevents fraud:</strong> Reduces chances of duplicate or old bill submissions</li>
+                        </ul>
+                        <p>If the timer expires, you'll need to wait for your next market visit to upload a new bill.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="upload">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            What types of bills are accepted?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept the following bill types:</p>
+                        <ul>
+                            <li><strong>MSP Receipt:</strong> Official receipt from government procurement centers</li>
+                            <li><strong>Mandi Slip:</strong> Computer-generated slip from APMC mandis</li>
+                            <li><strong>FPO Receipt:</strong> Bills from registered Farmer Producer Organizations</li>
+                            <li><strong>Private Buyer Invoice:</strong> GST invoice from registered traders</li>
+                        </ul>
+                        <p>The bill must clearly show: crop type, quantity, price, and seller/buyer details.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="upload">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            My bill was rejected. What should I do?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Common reasons for bill rejection:</p>
+                        <ul>
+                            <li><strong>Blurry image:</strong> Ensure the bill is clearly visible and well-lit</li>
+                            <li><strong>Incomplete details:</strong> All required fields (crop, quantity, price) must be visible</li>
+                            <li><strong>Duplicate submission:</strong> The same bill number was already uploaded</li>
+                            <li><strong>Invalid format:</strong> Only JPG, PNG, or PDF files under 8 MB are accepted</li>
+                        </ul>
+                        <p>You can retake the photo and try again within the 30-minute window.</p>
+                    </div>
+                </div>
+
+                <!-- Rewards Section -->
+                <div class="faq-category-header" data-category-header="rewards">
+                    <span class="material-symbols-rounded">card_giftcard</span>
+                    <h3>Rewards & Vouchers</h3>
+                </div>
+
+                <div class="faq-item" data-category="rewards">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            How do I redeem my agri-input vouchers?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>To redeem your vouchers:</p>
+                        <ol>
+                            <li>Go to "My Winnings" and click "Show Code" on the voucher</li>
+                            <li>Copy the voucher code (e.g., KRXXXXXX)</li>
+                            <li>Visit your nearest Krishi Seva Kendra or authorized dealer</li>
+                            <li>Show the code and collect your reward (seeds, fertilizer, equipment, etc.)</li>
+                        </ol>
+                        <p>Vouchers are valid for the duration mentioned on the voucher card.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="rewards">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            Can I transfer my voucher to another farmer?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>No, vouchers are non-transferable.</strong></p>
+                        <p>Each voucher is linked to your Farmer ID and can only be redeemed by you. This prevents misuse and ensures benefits reach the intended farmer.</p>
+                        <p>If you're unable to collect the reward yourself, you can authorize a family member by contacting customer support with a written authorization letter.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="rewards">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            What is the Drone Training grand prize?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The Drone Training is an exclusive experience for top-performing farmers:</p>
+                        <ul>
+                            <li><strong>Duration:</strong> Full-day hands-on training</li>
+                            <li><strong>Location:</strong> National Agriculture Drone Training Center, Pune</li>
+                            <li><strong>What you'll learn:</strong> Crop monitoring, spraying techniques, flight planning</li>
+                            <li><strong>Inclusions:</strong> Training, meals, certificate, and academy kit</li>
+                        </ul>
+                        <p>To qualify, you need to accumulate 2,000+ reward points through bill uploads and scheme participation.</p>
+                    </div>
+                </div>
+
+                <!-- Schemes Section -->
+                <div class="faq-category-header" data-category-header="schemes">
+                    <span class="material-symbols-rounded">policy</span>
+                    <h3>Government Schemes</h3>
+                </div>
+
+                <div class="faq-item" data-category="schemes">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            How do I check my PM-KISAN payment status?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can check PM-KISAN status in two ways:</p>
+                        <ol>
+                            <li><strong>Online:</strong> Visit pmkisan.gov.in → "Beneficiary Status" → Enter Aadhaar/mobile</li>
+                            <li><strong>Portal:</strong> The Smart Krishi Portal shows your PM-KISAN benefits in the dashboard</li>
+                        </ol>
+                        <p>If payment is pending, ensure your Aadhaar is seeded with your bank account and land records are updated.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="schemes">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            Am I eligible for multiple schemes at once?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Yes, most schemes can be availed together.</strong></p>
+                        <p>For example, you can simultaneously benefit from:</p>
+                        <ul>
+                            <li>PM-KISAN (income support)</li>
+                            <li>PMFBY (crop insurance)</li>
+                            <li>Soil Health Card (free testing)</li>
+                            <li>SMAM (machinery subsidy)</li>
+                        </ul>
+                        <p>However, some schemes have exclusions. Check individual scheme details for specific terms.</p>
+                    </div>
+                </div>
+
+                <!-- Technical Section -->
+                <div class="faq-category-header" data-category-header="technical">
+                    <span class="material-symbols-rounded">build</span>
+                    <h3>Technical Support</h3>
+                </div>
+
+                <div class="faq-item" data-category="technical">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            The portal is not loading on my phone. What should I do?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Try these troubleshooting steps:</p>
+                        <ul>
+                            <li><strong>Check internet:</strong> Ensure you have stable 4G/WiFi connection</li>
+                            <li><strong>Clear cache:</strong> Go to browser settings → Clear browsing data</li>
+                            <li><strong>Update browser:</strong> Use latest Chrome, Safari, or Firefox</li>
+                            <li><strong>Try incognito mode:</strong> This rules out extension conflicts</li>
+                        </ul>
+                        <p>The portal is optimized for low-bandwidth areas and works on 2G networks.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="technical">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            Can I use the portal in Hindi or regional languages?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Yes! Multi-language support is available.</strong></p>
+                        <p>The portal supports:</p>
+                        <ul>
+                            <li>Hindi, English (default)</li>
+                            <li>Punjabi, Marathi, Tamil, Telugu, Kannada, Bengali, Gujarati</li>
+                        </ul>
+                        <p>To change language, click the language icon in the top-right corner and select your preferred language. The change is instant and applies across all pages.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="technical">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="material-symbols-rounded">help</span>
+                            Is my data safe on this portal?
+                        </span>
+                        <span class="material-symbols-rounded faq-chevron">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Absolutely. Your data is fully secure.</strong></p>
+                        <p>We follow strict security measures:</p>
+                        <ul>
+                            <li>256-bit SSL encryption for all data transmission</li>
+                            <li>Aadhaar-based authentication (no passwords to remember)</li>
+                            <li>Data stored on government-certified cloud servers</li>
+                            <li>Compliant with IT Act 2000 and privacy regulations</li>
+                        </ul>
+                        <p>We never share your data with third parties without your explicit consent.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" hidden>
+                <span class="material-symbols-rounded">search_off</span>
+                <p>No questions found matching your search.</p>
+            </div>
+
+            <!-- Still Need Help Section -->
+            <div class="still-need-help">
+                <div class="help-card">
+                    <div class="help-icon">
+                        <span class="material-symbols-rounded">support_agent</span>
+                    </div>
+                    <h3>Still need help?</h3>
+                    <p>Our support team is available 24/7 to assist you with any queries.</p>
+                    
+                    <div class="help-options">
+                        <a href="tel:18001801551" class="help-option">
+                            <span class="material-symbols-rounded">call</span>
+                            <div>
+                                <strong>Call Us</strong>
+                                <span>1800-180-1551 (Toll Free)</span>
+                            </div>
+                        </a>
+                        <a href="mailto:support@smartkrishi.gov.in" class="help-option">
+                            <span class="material-symbols-rounded">mail</span>
+                            <div>
+                                <strong>Email Us</strong>
+                                <span>support@smartkrishi.gov.in</span>
+                            </div>
+                        </a>
+                        <a href="#" class="help-option">
+                            <span class="material-symbols-rounded">chat</span>
+                            <div>
+                                <strong>Live Chat</strong>
+                                <span>Available 9 AM - 9 PM</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/faqs.js"></script>
+    <script src="scripts/theme.js"></script>
+</body>
+</html>
