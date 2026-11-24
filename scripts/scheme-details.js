@@ -1,6 +1,3 @@
-/* ==========================================================================
-   SMART KRISHI PORTAL - SCHEME DETAILS
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", function () {
     "use strict";
 
@@ -10,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const emptyState = document.getElementById("emptyState");
     let currentCategory = "all";
 
-    /* ---------------------- 1. Expand/Collapse Scheme Details ---------------------- */
     document.querySelectorAll(".scheme-expand-btn").forEach(function (btn) {
         btn.addEventListener("click", function () {
             const schemeId = this.dataset.scheme;
@@ -29,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    /* ---------------------- 2. Close Details Buttons ---------------------- */
     document.querySelectorAll("[data-close-details]").forEach(function (btn) {
         btn.addEventListener("click", function () {
             const details = this.closest(".scheme-details");
@@ -42,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    /* ---------------------- 3. Filter by Category ---------------------- */
     schemeCategories.forEach(function (chip) {
         chip.addEventListener("click", function () {
             schemeCategories.forEach(c => c.classList.remove("active"));
@@ -52,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    /* ---------------------- 4. Search Functionality ---------------------- */
     schemeSearch.addEventListener("input", function () {
         filterSchemes();
     });
