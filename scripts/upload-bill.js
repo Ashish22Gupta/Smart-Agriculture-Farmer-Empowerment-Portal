@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const CLAIM_KEY = "ucp_current_claim";
-    const CLAIM_DURATION = 30 * 60 * 1000; // 30 minutes
+    const CLAIM_DURATION = 30 * 60 * 1000;
     
     const countdown = document.getElementById("countdown");
     const timerCard = document.getElementById("timerCard");
@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let isExpired = false;
     let timerId = null;
     
-    // Get or create claim session
     function getClaim() {
         let claim = null;
         try {
@@ -45,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
     const claim = getClaim();
     
-    // Update countdown timer
     function updateTimer() {
         const remaining = claim.expiresAt - Date.now();
         
@@ -59,13 +57,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const ss = String(seconds % 60).padStart(2, "0");
         countdown.textContent = `${mm}:${ss}`;
         
-        // Add urgent class when less than 5 minutes
         if (remaining <= 5 * 60 * 1000) {
             timerCard.classList.add("is-urgent");
         }
     }
     
-    // Expire the claim
     function expireClaim() {
         if (isExpired) return;
         
@@ -78,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
         openModal(expiredModal);
     }
     
-    // Validate form
     function validateForm() {
         const invoice = invoiceInput.value.trim();
         const invoicePattern = /^[A-Za-z0-9][A-Za-z0-9/-]{3,23}$/;
@@ -100,7 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return !submitBtn.disabled;
     }
     
-    // Handle file upload
     billInput.addEventListener("change", function () {
         const file = this.files && this.files[0];
         if (!file) return;
@@ -130,7 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
         reader.readAsDataURL(file);
     });
     
-    // Handle retake
     retakeBtn.addEventListener("click", function () {
         billInput.value = "";
         billPreview.src = "";
@@ -143,10 +136,8 @@ document.addEventListener("DOMContentLoaded", function () {
         billInput.click();
     });
     
-    // Handle invoice input
     invoiceInput.addEventListener("input", validateForm);
     
-    // Check geolocation
     function checkLocation() {
         if (!navigator.geolocation) {
             locationStatus.classList.add("is-blocked");
@@ -179,7 +170,6 @@ document.addEventListener("DOMContentLoaded", function () {
         );
     }
     
-    // Handle form submission
     billForm.addEventListener("submit", function (event) {
         event.preventDefault();
         
@@ -199,7 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.getItem("ucp_used_invoices") || "[]"
             );
             
-            // Check for duplicate
             if (usedInvoices.includes(invoice)) {
                 submitBtn.innerHTML = '<span class="material-symbols-rounded">check_circle</span> Submit Bill';
                 validateForm();
@@ -207,17 +196,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
             
-            // Mark as used
             usedInvoices.push(invoice);
             localStorage.setItem("ucp_used_invoices", JSON.stringify(usedInvoices));
             sessionStorage.removeItem(CLAIM_KEY);
             
-            // Redirect to scratch card
             window.location.href = "scratch-card.html";
         }, 1200);
     });
     
-    // Modal functions
     function openModal(modal) {
         modal.classList.add("is-open");
         document.body.classList.add("no-scroll");
@@ -228,26 +214,22 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.remove("no-scroll");
     }
     
-    // Close modal buttons
     document.querySelectorAll("[data-close-modal]").forEach(function (button) {
         button.addEventListener("click", function () {
             closeModal(button.closest(".modal-overlay"));
         });
     });
     
-    // Close duplicate modal on overlay click
     duplicateModal.addEventListener("click", function (event) {
         if (event.target === duplicateModal) {
             closeModal(duplicateModal);
         }
     });
     
-    // Update timer when tab becomes visible
     document.addEventListener("visibilitychange", function () {
         if (!document.hidden) updateTimer();
     });
     
-    // Initialize
     checkLocation();
     updateTimer();
     timerId = setInterval(updateTimer, 1000);
