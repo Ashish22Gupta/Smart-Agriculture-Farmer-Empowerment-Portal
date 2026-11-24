@@ -1,7 +1,3 @@
-/* ==========================================================================
-   SMART KRISHI PORTAL - MY WINNINGS
-   Reads vouchers from localStorage['skp_wallet']
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", function () {
     "use strict";
 
@@ -20,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentFilter = "all";
     let currentVoucherCode = null;
 
-    /* ---------------------- 1. Seed initial wallet ---------------------- */
     function seedWallet() {
         if (localStorage.getItem(SEED_KEY)) return;
 
@@ -66,10 +61,9 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             localStorage.setItem(WALLET_KEY, JSON.stringify(seedVouchers));
             localStorage.setItem(SEED_KEY, "true");
-        } catch (e) { /* storage blocked */ }
+        } catch (e) {}
     }
 
-    /* ---------------------- 2. Load wallet ---------------------- */
     function loadWallet() {
         try {
             return JSON.parse(localStorage.getItem(WALLET_KEY) || "[]");
@@ -81,22 +75,19 @@ document.addEventListener("DOMContentLoaded", function () {
     function saveWallet(wallet) {
         try {
             localStorage.setItem(WALLET_KEY, JSON.stringify(wallet));
-        } catch (e) { /* storage blocked */ }
+        } catch (e) {}
     }
 
-    /* ---------------------- 3. Render vouchers ---------------------- */
     function renderVouchers() {
         const wallet = loadWallet();
         const filtered = currentFilter === "all"
             ? wallet
             : wallet.filter(v => v.status === currentFilter);
 
-        // Update totals (always based on full wallet)
         const total = wallet.reduce((sum, v) => sum + (v.value || 0), 0);
         totalAmount.textContent = "₹" + total.toLocaleString("en-IN");
         totalVouchers.textContent = wallet.length + " voucher" + (wallet.length !== 1 ? "s" : "") + " earned";
 
-        // Clear grid
         vouchersGrid.innerHTML = "";
 
         if (filtered.length === 0) {
@@ -144,7 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
             vouchersGrid.appendChild(card);
         });
 
-        // Attach click handlers
         document.querySelectorAll(".voucher-action").forEach(function (btn) {
             btn.addEventListener("click", function () {
                 const code = this.dataset.code;
@@ -153,7 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    /* ---------------------- 4. Filter tabs ---------------------- */
     filterTabs.forEach(function (tab) {
         tab.addEventListener("click", function () {
             filterTabs.forEach(t => t.classList.remove("active"));
@@ -163,7 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    /* ---------------------- 5. Voucher modal ---------------------- */
     function openVoucherModal(code) {
         const wallet = loadWallet();
         const voucher = wallet.find(v => v.code === code);
@@ -176,7 +164,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("modalValidity").textContent = voucher.validity;
         document.getElementById("modalCode").textContent = voucher.code;
 
-        // Show/hide mark as redeemed button based on status
         if (voucher.status === "redeemed") {
             markRedeemedBtn.hidden = true;
             markRedeemedBtn.disabled = true;
@@ -188,7 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
         window.SKP.openModal(voucherModal);
     }
 
-    /* ---------------------- 6. Copy code ---------------------- */
     if (copyCodeBtn) {
         copyCodeBtn.addEventListener("click", function () {
             const code = document.getElementById("modalCode").textContent;
@@ -198,7 +184,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     copyCodeBtn.innerHTML = '<span class="material-symbols-rounded">content_copy</span> Copy Code';
                 }, 2000);
             }).catch(function () {
-                // Fallback for older browsers
                 const textarea = document.createElement("textarea");
                 textarea.value = code;
                 document.body.appendChild(textarea);
@@ -213,7 +198,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    /* ---------------------- 7. Mark as redeemed ---------------------- */
     if (markRedeemedBtn) {
         markRedeemedBtn.addEventListener("click", function () {
             if (!currentVoucherCode) return;
@@ -229,7 +213,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    /* ---------------------- 8. Initialize ---------------------- */
     seedWallet();
     renderVouchers();
 });
