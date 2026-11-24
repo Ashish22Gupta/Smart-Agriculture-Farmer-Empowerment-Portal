@@ -1,6 +1,3 @@
-/* ==========================================================================
-   SMART KRISHI PORTAL - FAQs
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", function () {
     "use strict";
 
@@ -11,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchHint = document.getElementById("searchHint");
     let currentCategory = "all";
 
-    /* ---------------------- 1. Accordion Toggle ---------------------- */
     document.querySelectorAll(".faq-question").forEach(function (btn) {
         btn.addEventListener("click", function () {
             const faqItem = this.closest(".faq-item");
@@ -19,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const chevron = this.querySelector(".faq-chevron");
             const isOpen = faqItem.classList.contains("is-open");
 
-            // Close all other FAQs
             document.querySelectorAll(".faq-item.is-open").forEach(function (openItem) {
                 if (openItem !== faqItem) {
                     openItem.classList.remove("is-open");
@@ -28,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
 
-            // Toggle current FAQ
             if (isOpen) {
                 faqItem.classList.remove("is-open");
                 answer.style.maxHeight = "0";
@@ -41,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    /* ---------------------- 2. Category Filter ---------------------- */
     faqCategories.forEach(function (chip) {
         chip.addEventListener("click", function () {
             faqCategories.forEach(c => c.classList.remove("active"));
@@ -51,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    /* ---------------------- 3. Search Functionality ---------------------- */
     faqSearch.addEventListener("input", function () {
         filterFAQs();
     });
@@ -62,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const categoryHeaders = document.querySelectorAll(".faq-category-header");
         let visibleCount = 0;
 
-        // Hide all category headers initially
         categoryHeaders.forEach(header => header.style.display = "none");
 
         faqItems.forEach(function (item) {
@@ -77,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 item.style.display = "block";
                 visibleCount++;
                 
-                // Show category header if not in "all" mode
                 if (currentCategory !== "all") {
                     const header = document.querySelector(`[data-category-header="${currentCategory}"]`);
                     if (header) header.style.display = "flex";
@@ -87,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Show/hide search hint
         if (searchTerm) {
             searchHint.textContent = `Found ${visibleCount} question${visibleCount !== 1 ? 's' : ''} matching "${searchTerm}"`;
         } else {
