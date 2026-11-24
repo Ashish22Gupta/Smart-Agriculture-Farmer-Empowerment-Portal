@@ -1,7 +1,3 @@
-/* ==========================================================================
-   SMART KRISHI PORTAL - THEME ENGINE
-   Themes: Bhoomi (default) | Krishi Tech | Harit
-   ========================================================================== */
 (function () {
     "use strict";
 
@@ -20,7 +16,7 @@
 
         try {
             localStorage.setItem(THEME_KEY, theme);
-        } catch (e) { /* storage blocked */ }
+        } catch (e) {}
 
         document.querySelectorAll("[data-theme-btn]").forEach(function (btn) {
             const isActive = btn.dataset.themeBtn === theme;
@@ -31,7 +27,6 @@
 
     window.setTheme = applyTheme;
 
-    // Apply saved theme immediately (prevents flash)
     let saved = null;
     try {
         saved = localStorage.getItem(THEME_KEY);
