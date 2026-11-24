@@ -379,7 +379,7 @@ h4 {
 }
 
 .auth-layout {
-  min-height: 100vh;
+  height: 100dvh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: var(--brand-bg);
