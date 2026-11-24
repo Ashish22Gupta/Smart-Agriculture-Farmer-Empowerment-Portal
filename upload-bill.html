@@ -12,7 +12,6 @@
 </head>
 <body class="campaign-bhoomi">
     <div class="app-layout">
-        <!-- Sidebar (Desktop) -->
         <aside class="sidebar">
             <div class="sidebar-logo">
                 <div class="sidebar-logo-icon">
@@ -60,10 +59,8 @@
             </div>
         </aside>
         
-        <!-- Sidebar Overlay (Mobile) -->
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
         
-        <!-- Header -->
         <header class="top-header">
             <div class="header-left">
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -87,16 +84,13 @@
             </div>
         </header>
         
-        <!-- Main Content -->
         <main class="main-content">
             <div style="max-width: 640px; margin: 0 auto;">
-                <!-- Page Intro -->
                 <div class="content-section">
                     <h2 style="font-size: 28px; margin-bottom: 8px;">Upload Crop Sale Receipt</h2>
                     <p class="page-intro">Submit your MSP or mandi receipt to claim scheme benefits and earn agri-input vouchers. Please upload within 30 minutes of your market visit.</p>
                 </div>
                 
-                <!-- Claim Timer -->
                 <div class="claim-timer-card" id="timerCard">
                     <span class="material-symbols-rounded timer-icon">timer</span>
                     <div class="timer-divider"></div>
@@ -106,15 +100,12 @@
                     </div>
                 </div>
                 
-                <!-- Upload Helper Text -->
                 <p class="upload-helper">
                     <span class="material-symbols-rounded" style="font-size: 16px; vertical-align: middle; color: var(--brand-primary);">info</span>
                     Please upload a clear image of your crop sale receipt. Ensure the invoice number, crop type, and amount are clearly visible.
                 </p>
                 
-                <!-- Upload Form -->
                 <form id="billForm">
-                    <!-- Bill Upload Box -->
                     <div class="bill-upload-box" id="billBox">
                         <input type="file" id="billInput" accept="image/*" style="display: none;">
                         
@@ -134,7 +125,6 @@
                         Retake / Change Image
                     </button>
                     
-                    <!-- Invoice Number -->
                     <div class="form-group" style="margin-top: 24px;">
                         <label class="form-label" for="invoiceNo">MSP Receipt / Mandi Slip Number</label>
                         <input 
@@ -148,13 +138,11 @@
                         <span class="form-error" id="invoiceError"></span>
                     </div>
                     
-                    <!-- Location Status -->
                     <div class="location-status" id="locationStatus">
                         <span class="material-symbols-rounded">location_on</span>
                         <span>Checking your location...</span>
                     </div>
                     
-                    <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary" id="submitBillBtn" disabled>
                         <span class="material-symbols-rounded">check_circle</span>
                         Submit Bill
@@ -164,7 +152,6 @@
         </main>
     </div>
     
-    <!-- Expired Modal -->
     <div class="modal-overlay" id="expiredModal">
         <div class="modal-content">
             <button class="modal-close" data-close-modal>
@@ -182,7 +169,6 @@
         </div>
     </div>
     
-    <!-- Duplicate Modal -->
     <div class="modal-overlay" id="duplicateModal">
         <div class="modal-content">
             <button class="modal-close" data-close-modal>
