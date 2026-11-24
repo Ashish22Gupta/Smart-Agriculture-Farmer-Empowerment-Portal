@@ -12,7 +12,6 @@
 </head>
 <body class="campaign-bhoomi">
     <div class="app-layout">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-logo">
                 <div class="sidebar-logo-icon">
@@ -62,7 +61,6 @@
 
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-        <!-- Header -->
         <header class="top-header">
             <div class="header-left">
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -86,15 +84,12 @@
             </div>
         </header>
 
-        <!-- Main -->
         <main class="main-content">
-            <!-- Page Intro -->
             <div class="content-section">
                 <h2 style="font-size: 28px; margin-bottom: 8px;">Learn & Grow</h2>
                 <p class="page-intro">Watch expert videos on modern farming techniques, government schemes, and success stories from fellow farmers across India.</p>
             </div>
 
-            <!-- Shorts Section -->
             <div class="content-section shorts-section">
                 <div class="section-header">
                     <h3 class="section-title">
@@ -107,7 +102,6 @@
                     </button>
                 </div>
                 
-                <!-- Desktop Navigation Arrows -->
                 <button class="shorts-carousel-arrow shorts-carousel-prev" id="shortsCarouselPrev" aria-label="Previous shorts">
                     <span class="material-symbols-rounded">chevron_left</span>
                 </button>
@@ -116,11 +110,9 @@
                 </button>
 
                 <div class="shorts-carousel" id="shortsCarousel">
-                    <!-- Shorts populated by JS -->
                 </div>
             </div>
 
-            <!-- Video Categories -->
             <div class="content-section">
                 <div class="section-header">
                     <h3 class="section-title">Browse by Category</h3>
@@ -157,16 +149,13 @@
                 </div>
             </div>
 
-            <!-- Video Grid -->
             <div class="content-section">
                 <div class="section-header">
                     <h3 class="section-title">Featured Videos</h3>
                 </div>
                 <div class="video-grid" id="videoGrid">
-                    <!-- Videos populated by JS -->
                 </div>
 
-                <!-- Empty State -->
                 <div class="empty-state" id="emptyState" hidden>
                     <span class="material-symbols-rounded">videocam_off</span>
                     <p>No videos found in this category.</p>
@@ -175,14 +164,12 @@
         </main>
     </div>
 
-    <!-- VIDEO MODAL (Long-form, responsive) -->
     <div class="modal-overlay video-modal" id="videoModal">
         <div class="video-modal-content">
             <button class="modal-close" data-close-modal>
                 <span class="material-symbols-rounded">close</span>
             </button>
             <div class="video-player-container" id="videoPlayerContainer">
-                <!-- Video/iframe injected here -->
             </div>
             <div class="video-modal-info">
                 <div class="video-modal-category" id="modalVideoCategory">Category</div>
@@ -204,14 +191,12 @@
         </div>
     </div>
 
-    <!-- SHORTS MODAL (Slider with arrows on desktop, swipe on mobile) -->
     <div class="modal-overlay shorts-modal" id="shortsModal">
         <div class="shorts-modal-content">
             <button class="modal-close shorts-close" data-close-modal>
                 <span class="material-symbols-rounded text-black">close</span>
             </button>
 
-            <!-- Desktop arrow navigation -->
             <button class="shorts-nav-arrow shorts-nav-prev" id="shortsPrev" aria-label="Previous short">
                 <span class="material-symbols-rounded">chevron_left</span>
             </button>
@@ -219,12 +204,9 @@
                 <span class="material-symbols-rounded">chevron_right</span>
             </button>
 
-            <!-- Shorts slider track -->
             <div class="shorts-slider" id="shortsSlider">
-                <!-- Shorts injected here -->
             </div>
 
-            <!-- Shorts info panel (below video on mobile, beside on desktop) -->
             <div class="shorts-info-panel" id="shortsInfoPanel">
                 <div class="shorts-info-header">
                     <span class="material-symbols-rounded">whatshot</span>
