@@ -1,15 +1,14 @@
 :root {
-    --brand-primary: #8B5A2B; // Terracotta / Soil Brown
+    --brand-primary: #8B5A2B;
     --brand-primary-dark: #6B4423;
-    --brand-accent: #F4B400; // Harvest Gold
+    --brand-accent: #F4B400;
     --brand-accent-light: #FFD54F;
-    --brand-bg: #FDFBF7; // Warm Cream
+    --brand-bg: #FDFBF7;
     --brand-surface: #FFFFFF;
-    --brand-text: #3E2723; // Deep Brown
+    --brand-text: #3E2723;
     --brand-text-muted: #7C6A5B;
     --brand-border: rgba(139, 90, 43, 0.12);
 
-    // Semantic Colors
     --success: #2D6A4F;
     --success-light: #D1FAE5;
     --warning: #D97706;
@@ -19,28 +18,23 @@
     --locked: #6B7280;
     --locked-light: #F3F4F6;
 
-    // Typography
     --font-heading: 'Nunito', sans-serif;
     --font-body: 'Nunito', sans-serif;
 
-    // Spacing & Radius
     --radius-sm: 10px;
     --radius-md: 14px;
     --radius-lg: 20px;
     --radius-xl: 28px;
 
-    // Shadows
     --shadow-sm: 0 2px 8px rgba(139, 90, 43, 0.06);
     --shadow: 0 4px 16px rgba(139, 90, 43, 0.08);
     --shadow-lg: 0 8px 32px rgba(139, 90, 43, 0.12);
 
-    // Layout
     --container-max: 1280px;
     --sidebar-width: 260px;
     --header-height: 72px;
 }
 
-// Krishi Tech Theme (Field Officer - Teal)
 body.campaign-krishi-tech {
     --brand-primary: #0F4C5C;
     --brand-primary-dark: #0A3A47;
@@ -58,7 +52,6 @@ body.campaign-krishi-tech {
     --shadow: 0 4px 16px rgba(15, 76, 92, 0.08);
 }
 
-// Harit Theme (Organic - Green)
 body.campaign-harit {
     --brand-primary: #2D6A4F;
     --brand-primary-dark: #1B4332;
@@ -70,10 +63,6 @@ body.campaign-harit {
     --brand-text-muted: #52796F;
     --brand-border: rgba(45, 106, 79, 0.12);
 }
-
-// ==========================================================================
-// 2. RESET & BASE
-// ==========================================================================
 
 *,
 *::before,
@@ -90,7 +79,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-color: #F5EFE6; // Outer desktop background (warm neutral)
+    background-color: #F5EFE6;
     color: var(--brand-text);
     min-height: 100vh;
     line-height: 1.5;
@@ -123,10 +112,6 @@ a {
     text-decoration: none;
 }
 
-// ==========================================================================
-// 3. TYPOGRAPHY
-// ==========================================================================
-
 h1,
 h2,
 h3,
@@ -153,10 +138,6 @@ h4 {
     font-size: 16px;
 }
 
-// ==========================================================================
-// 4. APP LAYOUT (Desktop Responsive - No 450px constraint)
-// ==========================================================================
-
 .text-black{
     color: var(--brand-text);
 }
@@ -171,7 +152,6 @@ h4 {
         "sidebar main";
 }
 
-// Sidebar (Desktop)
 .sidebar {
     grid-area: sidebar;
     background: var(--brand-surface);
@@ -292,7 +272,6 @@ h4 {
     background: linear-gradient(135deg, #95D5B2, #2D6A4F);
 }
 
-// Header
 .top-header {
     grid-area: header;
     background: var(--brand-surface);
@@ -399,16 +378,11 @@ h4 {
     color: var(--brand-text-muted);
 }
 
-// Main Content
 .main-content {
     grid-area: main;
     padding: 32px;
     overflow-x: hidden;
 }
-
-// ==========================================================================
-// 5. AUTH PAGE (OTP Login - Full Screen)
-// ==========================================================================
 
 .auth-layout {
     min-height: 100vh;
@@ -536,10 +510,6 @@ h4 {
     margin-bottom: 32px;
 }
 
-// ==========================================================================
-// 6. FORM COMPONENTS
-// ==========================================================================
-
 .form-group {
     margin-bottom: 20px;
 }
@@ -598,7 +568,6 @@ h4 {
     font-weight: 600;
 }
 
-// OTP Input
 .otp-container {
     display: flex;
     gap: 12px;
@@ -625,10 +594,6 @@ h4 {
     transform: translateY(-2px);
     box-shadow: var(--shadow);
 }
-
-// ==========================================================================
-// 7. BUTTONS
-// ==========================================================================
 
 .btn {
     display: inline-flex;
@@ -708,10 +673,6 @@ h4 {
     background: var(--brand-accent-light);
 }
 
-// ==========================================================================
-// 8. CARDS
-// ==========================================================================
-
 .surface-card {
     background: var(--brand-surface);
     border-radius: var(--radius-lg);
@@ -720,7 +681,6 @@ h4 {
     border: 1px solid var(--brand-border);
 }
 
-// Stat Card
 .stat-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -790,7 +750,6 @@ h4 {
     margin-top: 4px;
 }
 
-// Action Grid
 .action-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -841,7 +800,6 @@ h4 {
     color: var(--brand-text-muted);
 }
 
-// Activity List
 .activity-list {
     display: flex;
     flex-direction: column;
@@ -900,10 +858,6 @@ h4 {
     margin-top: 2px;
 }
 
-// ==========================================================================
-// 9. SECTION TITLES & LAYOUT HELPERS
-// ==========================================================================
-
 .section-header {
     display: flex;
     align-items: center;
@@ -931,7 +885,6 @@ h4 {
     margin-bottom: 32px;
 }
 
-// Page Intro
 .page-intro {
     color: var(--brand-text-muted);
     font-size: 14px;
@@ -939,10 +892,6 @@ h4 {
     margin-bottom: 24px;
     max-width: 640px;
 }
-
-// ==========================================================================
-// 10. UPLOAD & BILL COMPONENTS
-// ==========================================================================
 
 .claim-timer-card {
     display: flex;
@@ -1116,10 +1065,6 @@ h4 {
     color: var(--danger);
 }
 
-// ==========================================================================
-// 11. SCRATCH CARD
-// ==========================================================================
-
 .scratch-section {
     padding: 24px;
     max-width: 500px;
@@ -1187,10 +1132,6 @@ h4 {
     border-radius: 5px;
     transition: width 0.3s ease;
 }
-
-// ==========================================================================
-// 12. VOUCHER / WINNINGS
-// ==========================================================================
 
 .winnings-card {
     background: linear-gradient(135deg, var(--brand-accent), var(--brand-primary));
@@ -1367,10 +1308,6 @@ h4 {
     cursor: not-allowed;
 }
 
-// ==========================================================================
-// 13. BOOKING FORM
-// ==========================================================================
-
 .file-row {
     height: 52px;
     padding: 0 16px;
@@ -1543,10 +1480,6 @@ h4 {
     accent-color: var(--brand-primary);
 }
 
-// ==========================================================================
-// 14. KRISHI GYAN (Videos)
-// ==========================================================================
-
 .video-categories {
     display: flex;
     gap: 10px;
@@ -1689,7 +1622,6 @@ h4 {
     font-size: 14px;
 }
 
-// Shorts Section
 .shorts-section {
     margin-bottom: 32px;
 }
@@ -1767,10 +1699,6 @@ h4 {
     align-items: center;
     gap: 4px;
 }
-
-// ==========================================================================
-// 15. MODALS
-// ==========================================================================
 
 .modal-overlay {
     position: fixed;
@@ -1861,10 +1789,6 @@ h4 {
     margin-bottom: 24px;
 }
 
-// ==========================================================================
-// 16. BADGES
-// ==========================================================================
-
 .badge {
     display: inline-flex;
     align-items: center;
@@ -1905,10 +1829,6 @@ h4 {
     font-weight: 700;
 }
 
-// ==========================================================================
-// 17. EMPTY STATE
-// ==========================================================================
-
 .empty-state {
     padding: 48px 20px;
     text-align: center;
@@ -1923,11 +1843,6 @@ h4 {
     opacity: 0.4;
 }
 
-// ==========================================================================
-// 18. RESPONSIVE BREAKPOINTS
-// ==========================================================================
-
-// Tablet
 @media (max-width: 1024px) {
     .app-layout {
         grid-template-columns: 1fr;
@@ -1960,7 +1875,6 @@ h4 {
     }
 }
 
-// Mobile
 @media (max-width: 640px) {
     .auth-layout {
         grid-template-columns: 1fr;
@@ -2063,10 +1977,6 @@ h4 {
     display: block;
 }
 
-// ==========================================================================
-// 17b. SCRATCH PAGE (extended)
-// ==========================================================================
-
 .verified-strip {
   display: flex;
   align-items: center;
@@ -2083,7 +1993,6 @@ h4 {
 .verified-strip strong { display: block; font-size: 14px; }
 .verified-strip span:not(.material-symbols-rounded) { font-size: 12px; opacity: .85; }
 
-// Two-column layout on desktop
 .scratch-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
@@ -2147,7 +2056,6 @@ h4 {
   font-size: 13px;
 }
 
-// Aside info cards
 .scratch-aside { display: flex; flex-direction: column; gap: 20px; }
 .info-card .section-title { margin-bottom: 16px; }
 
@@ -2178,7 +2086,6 @@ h4 {
   text-align: center;
 }
 
-// Celebration modal extras
 .celebration-icon { animation: bounceIn .6s ease; }
 
 @keyframes bounceIn {
@@ -2197,7 +2104,6 @@ h4 {
 .prize-name { font-family: var(--font-heading); font-size: 20px; font-weight: 800; }
 .prize-meta { font-size: 12px; opacity: .9; margin-top: 4px; }
 
-// Tablet / mobile stacking
 @media (max-width: 1024px) {
   .scratch-layout { grid-template-columns: 1fr; }
   .scratch-panel { padding: 24px; }
@@ -2210,10 +2116,6 @@ h4 {
   .reward-brand { font-size: 15px; }
   .reward-icon { font-size: 30px; }
 }
-
-// ==========================================================================
-// 17c. MY WINNINGS PAGE (extended)
-// ==========================================================================
 
 .voucher-code-display {
   padding: 24px 20px;
@@ -2295,7 +2197,6 @@ h4 {
   margin: 0;
 }
 
-// Empty state enhancement
 .empty-state {
   padding: 60px 20px;
   text-align: center;
@@ -2314,11 +2215,6 @@ h4 {
   margin-bottom: 20px;
 }
 
-// ==========================================================================
-// 17e. KRISHI GYAN - ENHANCED MODALS
-// ==========================================================================
-
-// Video type badge (YouTube vs Local indicator)
 .video-type-badge,
 .short-type-badge {
     position: absolute;
@@ -2338,7 +2234,6 @@ h4 {
     z-index: 2;
 }
 
-// ---------------------- VIDEO MODAL (Responsive, stays in viewport) ----------------------
 .video-modal {
     padding: 24px;
 }
@@ -2448,7 +2343,6 @@ h4 {
     color: var(--brand-text-muted);
 }
 
-// ---------------------- SHORTS MODAL (Slider) ----------------------
 .shorts-modal {
     padding: 0;
     background: rgba(0, 0, 0, 0.92);
@@ -2486,7 +2380,6 @@ h4 {
     background: rgba(255, 255, 255, 0.3);
 }
 
-// Slider track
 .shorts-slider {
     display: flex;
     flex-direction: column;
@@ -2522,7 +2415,6 @@ h4 {
     border: none;
 }
 
-// Desktop arrow navigation
 .shorts-nav-arrow {
     position: absolute;
     top: 50%;
@@ -2559,7 +2451,6 @@ h4 {
     right: calc(360px + 20px);
 }
 
-// Shorts info panel (beside video on desktop)
 .shorts-info-panel {
     background: var(--brand-surface);
     padding: 80px 28px 28px;
@@ -2613,7 +2504,6 @@ h4 {
     color: var(--brand-text-muted);
 }
 
-// ---------------------- RESPONSIVE: SHORTS MODAL ----------------------
 @media (max-width: 900px) {
     .shorts-modal-content {
         grid-template-columns: 1fr;
@@ -2629,7 +2519,6 @@ h4 {
         max-width: 100%;
     }
 
-    // Hide desktop arrows on mobile (use swipe instead)
     .shorts-nav-arrow {
         display: none;
     }
@@ -2665,7 +2554,6 @@ h4 {
     }
 }
 
-// ---------------------- RESPONSIVE: VIDEO MODAL ----------------------
 @media (max-width: 768px) {
     .video-modal {
         padding: 0;
@@ -2695,12 +2583,9 @@ h4 {
 }
 
 
-// ==========================================================================
-// SHORTS CAROUSEL (Main Page)
-// ==========================================================================
 .shorts-section {
     margin-bottom: 32px;
-    position: relative; // For arrow positioning
+    position: relative;
 }
 
 .shorts-carousel {
@@ -2710,14 +2595,13 @@ h4 {
     padding-bottom: 12px;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    scrollbar-width: none; // Hide on desktop by default
+    scrollbar-width: none;
 }
 
 .shorts-carousel::-webkit-scrollbar {
-    display: none; // Hide on desktop
+    display: none;
 }
 
-// Desktop Arrows (Hidden on mobile)
 .shorts-carousel-arrow {
     position: absolute;
     top: 50%;
@@ -2728,7 +2612,7 @@ h4 {
     background: var(--brand-surface);
     border: 1px solid var(--brand-border);
     color: var(--brand-text);
-    display: none; // Hidden by default (mobile)
+    display: none;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -2753,7 +2637,6 @@ h4 {
 .shorts-carousel-prev { left: -22px; }
 .shorts-carousel-next { right: -22px; }
 
-// Mobile: Show custom scrollbar, hide arrows
 @media (max-width: 1024px) {
     .shorts-carousel {
         scrollbar-width: thin;
@@ -2834,11 +2717,11 @@ h4 {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     height: 100vh;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
 }
 
 .shorts-slider::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Edge */
+    display: none;
 }
 
 .short-slide {
@@ -2973,17 +2856,12 @@ h4 {
     .shorts-info-description { color: rgba(255, 255, 255, 0.85); font-size: 13px; }
 }
 
-// ==========================================================================
-// 13. BOOKING FORM (Redesigned for Desktop)
-// ==========================================================================
-
 .booking-form {
     padding: 32px;
     max-width: 800px;
     margin: 0 auto;
 }
 
-// 2-column row for Date + Batch on desktop
 .booking-row {
     display: grid;
     grid-template-columns: 1fr;
@@ -2997,7 +2875,6 @@ h4 {
     }
 }
 
-// Label with icon
 .form-label {
     display: flex;
     align-items: center;
@@ -3009,7 +2886,6 @@ h4 {
     color: var(--brand-primary);
 }
 
-// File row (ID Proof upload)
 .file-row {
     min-height: 52px;
     padding: 10px 16px;
@@ -3043,7 +2919,6 @@ h4 {
     color: var(--brand-text);
 }
 
-// Accordion (FIXED - only chevron rotates)
 .accordion {
     margin: 20px 0;
     border-radius: var(--radius-md);
@@ -3081,7 +2956,6 @@ h4 {
     flex: 1;
 }
 
-// FIXED: Only the chevron rotates, not the person_add icon
 .accordion-chevron {
     transition: transform 0.25s ease;
     color: var(--brand-primary);
@@ -3128,7 +3002,6 @@ h4 {
     }
 }
 
-// Terms block (Inclusions / Exclusions)
 .terms-block {
     padding: 24px 0;
     margin: 24px 0;
@@ -3197,7 +3070,6 @@ h4 {
     color: var(--danger);
 }
 
-// Verification Section (NEW - Better visual hierarchy)
 .verification-section {
     margin: 28px 0 24px;
     padding: 24px;
@@ -3242,7 +3114,6 @@ h4 {
     margin: 0;
 }
 
-// CAPTCHA
 .captcha-row {
     display: flex;
     align-items: center;
@@ -3272,7 +3143,6 @@ h4 {
     font-size: 16px;
 }
 
-// Consent
 .consent-row {
     display: flex;
     align-items: flex-start;
@@ -3299,7 +3169,6 @@ h4 {
     text-decoration: underline;
 }
 
-// Redeem Button (Enhanced)
 .redeem-btn {
     height: 56px;
     font-size: 16px;
@@ -3310,7 +3179,6 @@ h4 {
     font-size: 22px;
 }
 
-// Mobile adjustments
 @media (max-width: 640px) {
     .booking-form {
         padding: 20px;
@@ -3341,10 +3209,6 @@ h4 {
     }
 }
 
-// ==========================================================================
-// CUSTOM SELECT DROPDOWN (with expand_more icon)
-// ==========================================================================
-
 .select-wrapper {
     position: relative;
     width: 100%;
@@ -3353,7 +3217,7 @@ h4 {
 .custom-select {
     width: 100%;
     height: 50px;
-    padding: 0 48px 0 16px; // Extra right padding for the icon
+    padding: 0 48px 0 16px;
     border-radius: var(--radius-md);
     border: 1.5px solid var(--brand-border);
     background-color: var(--brand-surface);
@@ -3364,30 +3228,25 @@ h4 {
     cursor: pointer;
     transition: all 0.2s ease;
     
-    // Hide native browser arrow
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     
-    // Remove default arrow in IE
     &::-ms-expand {
         display: none;
     }
     
-    // Placeholder option styling
     option {
         background: var(--brand-surface);
         color: var(--brand-text);
         padding: 12px;
     }
     
-    // Disabled/placeholder state
     &:invalid,
     option[value=""] {
         color: var(--brand-text-muted);
     }
     
-    // Focus state
     &:focus {
         outline: none;
         border-color: var(--brand-accent);
@@ -3399,7 +3258,6 @@ h4 {
         }
     }
     
-    // Hover state
     &:hover:not(:focus) {
         border-color: var(--brand-primary);
         
@@ -3409,14 +3267,13 @@ h4 {
     }
 }
 
-// Custom expand_more icon
 .select-arrow {
     position: absolute;
     right: 14px;
     top: 50%;
     transform: translateY(-50%);
     color: var(--brand-text-muted);
-    pointer-events: none; // Let clicks pass through to the select
+    pointer-events: none;
     transition: all 0.25s ease;
     display: flex;
     align-items: center;
@@ -3428,22 +3285,19 @@ h4 {
     }
 }
 
-// When select has a valid value (not placeholder)
 .custom-select:valid:not([value=""]) {
     color: var(--brand-text);
 }
 
-// Selected state - rotate the arrow
 .custom-select:focus + .select-arrow,
 .select-wrapper.is-open .select-arrow {
     color: var(--brand-primary);
     transform: translateY(-50%) rotate(180deg);
 }
 
-// Mobile adjustments
 @media (max-width: 640px) {
     .custom-select {
-        font-size: 16px; // Prevents iOS zoom on focus
+        font-size: 16px;
         height: 48px;
     }
     
@@ -3451,10 +3305,6 @@ h4 {
         font-size: 22px;
     }
 }
-
-// ==========================================================================
-// 19. SCHEME DETAILS PAGE
-// ==========================================================================
 
 .helpline-banner {
     display: flex;
@@ -3506,7 +3356,6 @@ h4 {
     color: var(--brand-primary);
 }
 
-// Scheme Filter
 .scheme-filter {
     margin-bottom: 24px;
 }
@@ -3549,11 +3398,9 @@ h4 {
     flex-wrap: wrap;
 }
 
-// Schemes Grid
 .schemes-grid {
     display: grid;
     grid-template-columns: 1fr;
-    // grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 20px;
 }
 
@@ -3684,7 +3531,6 @@ h4 {
     transition: transform 0.25s ease;
 }
 
-// Scheme Details (Expanded)
 .scheme-details {
     max-height: 0;
     overflow: hidden;
@@ -3764,10 +3610,6 @@ h4 {
     margin-top: 24px;
 }
 
-// ==========================================================================
-// 20. FAQs PAGE
-// ==========================================================================
-
 .faq-search-container {
     margin-bottom: 24px;
 }
@@ -3818,7 +3660,6 @@ h4 {
     margin-bottom: 24px;
 }
 
-// FAQ Category Headers
 .faq-category-header {
     display: flex;
     align-items: center;
@@ -3852,7 +3693,6 @@ h4 {
     margin: 0;
 }
 
-// FAQ Items
 .faq-list {
     display: flex;
     flex-direction: column;
@@ -3955,7 +3795,6 @@ h4 {
     font-weight: 700;
 }
 
-// Still Need Help Section
 .still-need-help {
     margin-top: 48px;
 }
@@ -4046,10 +3885,6 @@ h4 {
     font-size: 12px;
     opacity: 0.9;
 }
-
-// ==========================================================================
-// RESPONSIVE: Scheme Details & FAQs
-// ==========================================================================
 
 @media (max-width: 768px) {
     .helpline-banner {
