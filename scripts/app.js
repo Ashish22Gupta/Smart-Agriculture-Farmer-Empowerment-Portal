@@ -1,8 +1,3 @@
-// Add this to the existing app.js file
-
-// ==========================================================================
-// 4. Mobile Number → OTP Flow (Login Page)
-// ==========================================================================
 const mobileInput = document.getElementById("mobileNumber");
 const otpSection = document.getElementById("otpSection");
 const submitBtn = document.getElementById("submitBtn");
@@ -12,10 +7,8 @@ if (mobileInput && otpSection && submitBtn) {
     let otpSent = false;
     
     mobileInput.addEventListener("input", function() {
-        // Only allow numbers
         this.value = this.value.replace(/[^0-9]/g, "");
         
-        // Enable/disable button based on mobile number length
         if (this.value.length === 10) {
             submitBtn.disabled = false;
         } else {
@@ -23,14 +16,12 @@ if (mobileInput && otpSection && submitBtn) {
         }
     });
     
-    // Initially disable button
     submitBtn.disabled = true;
     
     otpForm.addEventListener("submit", function(e) {
         e.preventDefault();
         
         if (!otpSent) {
-            // Step 1: Send OTP
             const mobile = mobileInput.value;
             if (mobile.length !== 10) {
                 alert("Please enter a valid 10-digit mobile number.");
@@ -40,7 +31,6 @@ if (mobileInput && otpSection && submitBtn) {
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span class="material-symbols-rounded">hourglass_empty</span> Sending...';
             
-            // Simulate API call
             setTimeout(() => {
                 otpSent = true;
                 mobileInput.disabled = true;
@@ -48,13 +38,11 @@ if (mobileInput && otpSection && submitBtn) {
                 submitBtn.innerHTML = '<span class="material-symbols-rounded">verified</span> Verify & Continue';
                 submitBtn.disabled = true;
                 
-                // Focus first OTP box
                 const firstOtpBox = document.querySelector(".otp-box");
                 if (firstOtpBox) firstOtpBox.focus();
             }, 1500);
             
         } else {
-            // Step 2: Verify OTP (existing logic from original app.js)
             let otpValue = "";
             otpBoxes.forEach(box => otpValue += box.value);
             
@@ -63,7 +51,6 @@ if (mobileInput && otpSection && submitBtn) {
                 submitBtn.innerHTML = '<span class="material-symbols-rounded">hourglass_empty</span> Verifying...';
                 
                 setTimeout(() => {
-                    // Success - redirect to dashboard
                     window.location.href = "dashboard.html";
                 }, 1500);
             } else {
@@ -73,13 +60,6 @@ if (mobileInput && otpSection && submitBtn) {
     });
 }
 
-
-
-// Add this to app.js
-
-// ==========================================================================
-// 5. Mobile Sidebar Toggle
-// ==========================================================================
 const mobileMenuBtn = document.getElementById("mobileMenuBtn");
 const sidebar = document.querySelector(".sidebar");
 const sidebarOverlay = document.getElementById("sidebarOverlay");
@@ -98,16 +78,9 @@ if (mobileMenuBtn && sidebar && sidebarOverlay) {
     });
 }
 
-/* ==========================================================================
-   SMART KRISHI PORTAL - GLOBAL SCRIPT
-   1. OTP inputs  2. Login flow  3. Sidebar  4. Shared modal helpers
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", function () {
     "use strict";
 
-    /* ----------------------------------------------------------------------
-       1. OTP AUTO-ADVANCE / BACKSPACE / PASTE
-    ---------------------------------------------------------------------- */
     const otpBoxes = Array.from(document.querySelectorAll(".otp-box"));
 
     function getOtpValue() {
@@ -147,9 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    /* ----------------------------------------------------------------------
-       2. LOGIN FLOW (Mobile Number -> OTP -> Dashboard)
-    ---------------------------------------------------------------------- */
     const otpForm = document.getElementById("otpForm");
     const mobileInput = document.getElementById("mobileNumber");
     const otpSection = document.getElementById("otpSection");
@@ -201,15 +171,12 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(function () {
                 try {
                     sessionStorage.setItem("skp_farmer_mobile", mobileInput.value);
-                } catch (err) { /* ignore */ }
+                } catch (err) {}
                 window.location.href = "dashboard.html";
             }, 1200);
         });
     }
 
-    /* ----------------------------------------------------------------------
-       3. SIDEBAR (Desktop persistent / Mobile drawer)
-    ---------------------------------------------------------------------- */
     const menuBtn = document.getElementById("mobileMenuBtn");
     const sidebar = document.querySelector(".sidebar");
     const overlay = document.getElementById("sidebarOverlay");
@@ -240,14 +207,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Reset drawer state when resizing up to desktop
     window.addEventListener("resize", function () {
         if (window.innerWidth > 1024) closeSidebar();
     });
 
-    /* ----------------------------------------------------------------------
-       4. SHARED MODAL HELPERS + GENERIC CLOSE BUTTONS
-    ---------------------------------------------------------------------- */
     window.SKP = {
         openModal: function (modal) {
             if (!modal) return;
