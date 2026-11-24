@@ -81,7 +81,7 @@ body {
     font-family: var(--font-body);
     background-color: #F5EFE6;
     color: var(--brand-text);
-    min-height: 100vh;
+    min-height: 100dvh;
     line-height: 1.5;
     transition: background-color 0.3s ease, color 0.3s ease;
     -webkit-font-smoothing: antialiased;
@@ -507,7 +507,7 @@ h4 {
 .auth-form-subtitle {
     color: var(--brand-text-muted);
     font-size: 14px;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
 }
 
 .form-group {
@@ -1885,7 +1885,7 @@ h4 {
     }
 
     .auth-form-container {
-        padding: 24px;
+        padding: 20px;
     }
 
     .top-header {
