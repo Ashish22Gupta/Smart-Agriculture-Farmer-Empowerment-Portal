@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (short.type === "local") {
                 const autoplayAttr = index === currentShortIndex ? 'autoplay' : '';
                 slide.innerHTML = `
-                    <video ${autoplayAttr} loop muted playsinline controls poster="${short.thumbnail}" style="width: 100%; height: 100%; max-width: 420px; max-height: 100vh; object-fit: cover; background: #000;">
+                    <video ${autoplayAttr} loop muted playsinline controls poster="${short.thumbnail}" style="width: 100%; height: 100%; max-width: 420px; max-height: 100dvh; object-fit: cover; background: #000;">
                         <source src="${short.url}" type="video/mp4">
                     </video>
                 `;
