@@ -2787,11 +2787,11 @@ h4 {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   height: 100vh;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 
 .shorts-slider::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
+  display: none;
 }
 
 .short-slide {
