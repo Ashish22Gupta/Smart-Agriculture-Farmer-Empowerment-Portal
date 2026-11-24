@@ -1,6 +1,3 @@
-/* ==========================================================================
-   SMART KRISHI PORTAL - SCRATCH CARD (FIXED)
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", function () {
     "use strict";
 
@@ -15,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const revealBtn   = document.getElementById("revealBtn");
     const modal       = document.getElementById("celebrationModal");
 
-    const REVEAL_AT = 60;   // percent
-    const BRUSH     = 22;   // radius in CSS pixels
+    const REVEAL_AT = 60;
+    const BRUSH     = 22;
 
     let isDrawing = false;
     let isRevealed = false;
@@ -24,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let lastCheck = 0;
     let cssW = 0, cssH = 0;
 
-    /* ---------------------- 1. Pick the reward ---------------------- */
     const REWARDS = [
         { icon: "science",    title: "Soil Health Kit", sub: "Free Soil Testing Kit",      validity: "Valid for Kharif Season 2026", value: 750 },
         { icon: "grass",      title: "50 kg Seeds",     sub: "Premium Wheat Seeds",        validity: "Valid till 31 March 2027",     value: 1200 },
@@ -50,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("rewardSub").textContent      = reward.sub;
     document.getElementById("rewardValidity").textContent = reward.validity;
 
-    /* ---------------------- 2. Canvas painting ---------------------- */
     function paintCover() {
         const dpr = window.devicePixelRatio || 1;
         const rect = container.getBoundingClientRect();
@@ -73,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, cssW, cssH);
 
-        // Diagonal shimmer stripes
         ctx.strokeStyle = "rgba(255,255,255,0.18)";
         ctx.lineWidth = 12;
         for (let x = -cssH; x < cssW; x += 46) {
@@ -92,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
         ctx.fillText("Reveal your agri-input reward", cssW / 2, cssH / 2 + 20);
     }
 
-    /* ---------------------- 3. Scratch mechanics ---------------------- */
     function getPos(e) {
         const rect = canvas.getBoundingClientRect();
         const point = e.touches && e.touches[0] ? e.touches[0] : e;
@@ -113,20 +106,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         ctx.arc(pos.x, pos.y, BRUSH, 0, Math.PI * 2);
         ctx.fill();
-        ctx.restore(); // Reset to source-over
+        ctx.restore();
         lastPos = pos;
     }
 
-    // FIXED: Check for semi-transparent pixels (alpha < 128) instead of just fully transparent (alpha === 0)
     function scratchedPercent() {
         const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
         let clear = 0, total = 0;
         
-        // Sample every 40 indices (every 10 pixels) for better accuracy
         for (let i = 3; i < data.length; i += 40) {
             total++;
-            // Count pixels that are semi-transparent or fully transparent
-            // Alpha values: 0 = fully transparent, 1-127 = semi-transparent, 128-255 = mostly opaque
             if (data[i] < 128) clear++;
         }
         return total ? (clear / total) * 100 : 0;
@@ -134,14 +123,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateProgress(force) {
         const now = Date.now();
-        if (!force && now - lastCheck < 100) return; // Throttle to 100ms for smoother updates
+        if (!force && now - lastCheck < 100) return;
         lastCheck = now;
 
         const pct = Math.min(100, scratchedPercent());
         if (progressBar) progressBar.style.width = pct + "%";
         if (progressTxt) progressTxt.textContent = Math.round(pct) + "%";
         
-        // FIXED: Use > instead of >= to avoid edge case at exactly 60%
         if (pct > REVEAL_AT - 1) {
             revealCard();
         }
@@ -159,14 +147,14 @@ document.addEventListener("DOMContentLoaded", function () {
         isDrawing = true;
         lastPos = getPos(e);
         erase(lastPos);
-        updateProgress(true); // Force immediate check on start
+        updateProgress(true);
     }
 
     function endDraw() {
         if (!isDrawing) return;
         isDrawing = false;
         lastPos = null;
-        updateProgress(true); // Force check on release
+        updateProgress(true);
     }
 
     canvas.addEventListener("mousedown", startDraw);
@@ -179,7 +167,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("touchend", endDraw);
     window.addEventListener("touchcancel", endDraw);
 
-    /* ---------------------- 4. Reveal ---------------------- */
     function revealCard() {
         if (isRevealed) return;
         isRevealed = true;
@@ -210,7 +197,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (revealBtn) revealBtn.addEventListener("click", revealCard);
 
-    /* ---------------------- 5. Save voucher to wallet ---------------------- */
     function saveToWallet(item) {
         try {
             const wallet = JSON.parse(localStorage.getItem("skp_wallet") || "[]");
@@ -226,10 +212,9 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             localStorage.setItem("skp_wallet", JSON.stringify(wallet));
             sessionStorage.removeItem("skp_pending_reward");
-        } catch (e) { /* storage blocked */ }
+        } catch (e) {}
     }
 
-    /* ---------------------- 6. Resize (debounced, keeps state) ---------------------- */
     let resizeTimer = null;
     window.addEventListener("resize", function () {
         if (isRevealed) return;
@@ -243,7 +228,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 250);
     });
 
-    /* ---------------------- 7. Init ---------------------- */
     paintCover();
     if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(function () {
