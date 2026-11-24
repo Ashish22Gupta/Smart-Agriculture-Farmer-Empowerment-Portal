@@ -2328,7 +2328,7 @@ h4 {
   position: relative;
   width: 100%;
   max-width: 50%;
-  max-height: 90vh;
+  max-height: 90dvh;
   background: var(--brand-surface);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -2638,8 +2638,8 @@ h4 {
   }
   .video-modal-content {
     max-width: 100%;
-    max-height: 100vh;
-    height: 100vh;
+    max-height: 100dvh;
+    height: 100dvh;
     border-radius: 0;
   }
   .video-modal-info {
